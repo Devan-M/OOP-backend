@@ -2,6 +2,7 @@
 package br.com.fecaf.repository;
 
 // Importa a entidade Veiculo que será manipulada pelo repositório
+import br.com.fecaf.model.StatusVeiculo;
 import br.com.fecaf.model.Veiculo;
 
 // Importa a interface base do Spring Data JPA
@@ -33,6 +34,6 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
     // 🔍 Busca veículos com quilometragem dentro de uma faixa
     List<Veiculo> findByQuilometragemBetween(Integer kmMin, Integer kmMax);
 
-    // 🔍 Busca veículos com status exato (ex: DISPONIVEL, VENDIDO)
-    List<Veiculo> findByStatus(String status);
+    // 🔍 Busca veículos com status exato (ex: DISPONIVEL, VENDIDO ou RESERVADO)
+    List<Veiculo> findByStatus(StatusVeiculo status);
 }

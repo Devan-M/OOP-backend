@@ -2,6 +2,7 @@
 package br.com.fecaf.services;
 
 // Importa a entidade Veiculo
+import br.com.fecaf.model.StatusVeiculo;
 import br.com.fecaf.model.Veiculo;
 
 // Importa o repositório que acessa o banco de dados
@@ -98,7 +99,7 @@ public class VeiculoService {
     }
 
     // 🔍 Busca veículos com status específico (ex: DISPONIVEL, VENDIDO)
-    public List<Veiculo> buscarPorStatus(String status) {
+    public List<Veiculo> buscarPorStatus(StatusVeiculo status) {
         return veiculoRepository.findByStatus(status);
     }
 }

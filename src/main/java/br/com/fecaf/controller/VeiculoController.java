@@ -2,6 +2,7 @@
 package br.com.fecaf.controller;
 
 // Importações de classes e bibliotecas necessárias
+import br.com.fecaf.model.StatusVeiculo;
 import br.com.fecaf.model.Veiculo; // Entidade Veiculo
 import br.com.fecaf.services.VeiculoService; // Serviço que contém a lógica de negócio
 import io.swagger.v3.oas.annotations.Operation; // Anotação para documentação Swagger
@@ -108,7 +109,7 @@ public class VeiculoController {
     // Endpoint para buscar veículos por status
     @Operation(summary = "Busca por Status", description = "Retorna veiculos com o Status informado")
     @GetMapping("/status")
-    public List<Veiculo> buscarPorStatus(@RequestParam String status) {
+    public List<Veiculo> buscarPorStatus(@RequestParam StatusVeiculo status) {
         return veiculoService.buscarPorStatus(status);
     }
 }
