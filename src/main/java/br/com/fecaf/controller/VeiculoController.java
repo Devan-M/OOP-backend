@@ -112,4 +112,11 @@ public class VeiculoController {
     public List<Veiculo> buscarPorStatus(@RequestParam StatusVeiculo status) {
         return veiculoService.buscarPorStatus(status);
     }
+
+    // Endpoint para buscar veículos por modelo
+    @Operation(summary = "Busca por Modelo", description = "Retorna veículos com o modelo informado")
+    @GetMapping("/modelo")
+    public List<Veiculo> buscarPorModelo(@RequestParam String nome) {
+        return veiculoService.buscarPorModelo(nome);
+    }
 }

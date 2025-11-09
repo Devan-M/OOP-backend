@@ -36,4 +36,7 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
 
     // 🔍 Busca veículos com status exato (ex: DISPONIVEL, VENDIDO ou RESERVADO)
     List<Veiculo> findByStatus(StatusVeiculo status);
+
+    // 🔍 Busca os modelos de veiculos
+    List<Veiculo> findByModeloContainingIgnoreCase(String modelo);
 }

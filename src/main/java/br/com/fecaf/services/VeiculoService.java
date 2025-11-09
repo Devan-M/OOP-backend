@@ -83,6 +83,7 @@ public class VeiculoService {
         existente.setPreco(novo.getPreco());
         existente.setImagemUrl(novo.getImagemUrl());
         existente.setTipo(novo.getTipo());
+        existente.setStatus(novo.getStatus());
 
         // Salva as alterações no banco
         return veiculoRepository.save(existente);
@@ -101,5 +102,10 @@ public class VeiculoService {
     // 🔍 Busca veículos com status específico (ex: DISPONIVEL, VENDIDO)
     public List<Veiculo> buscarPorStatus(StatusVeiculo status) {
         return veiculoRepository.findByStatus(status);
+    }
+
+    // 🔍 Busca veículos com modelo que contenha o nome informado (ignora maiúsculas/minúsculas)
+    public List<Veiculo> buscarPorModelo(String nome) {
+        return veiculoRepository.findByModeloContainingIgnoreCase(nome);
     }
 }
